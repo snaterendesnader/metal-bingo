@@ -232,3 +232,7 @@ ozzy-osbourne.png — https://www.theaudiodb.com/artist/113156
 parkway-drive.png — https://www.theaudiodb.com/artist/113384
 queensryche.png — https://www.theaudiodb.com/artist/111980
 w-a-s-p.png — https://www.theaudiodb.com/artist/114079
+
+== Zelf aangeleverd ==
+
+wings-of-steel.png — zelf aangeleverd (wings of steel 2400x600.jpg)
