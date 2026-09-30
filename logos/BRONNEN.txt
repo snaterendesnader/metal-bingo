@@ -206,7 +206,6 @@ alice-cooper.png — https://iconape.com/alice-cooper-logo-logo-icon-svg-png.htm
 celtic-frost.png — https://iconape.com/celtic-frost-logo-logo-icon-svg-png.html
 evanescence.png — https://iconape.com/evanescence-logo-logo-icon-svg-png.html
 morbid-angel.png — https://iconape.com/morbid-angel-logo-logo-icon-svg-png.html
-motley-crue.png — https://iconape.com/motley-crue-2008-logo-logo-icon-svg-png.html
 napalm-death.png — https://iconape.com/napalm-death-logo-logo-icon-svg-png.html
 rotting-christ.png — https://iconape.com/rotting-christ-logo-logo-icon-svg-png.html
 
@@ -231,6 +230,7 @@ w-a-s-p.png — https://www.theaudiodb.com/artist/114079
 == Zelf aangeleverd ==
 
 lorna-shore.png — zelf aangeleverd (lornaShore.png)
+motley-crue.png — zelf aangeleverd (313-3136619_motley-crue-band-logo.png)
 soulfly.png — zelf aangeleverd (soulfy.webp, bovenste helft; oorspronkelijk van dreamstime.com)
 venom.png — zelf aangeleverd (Venom_Welcome_to_Hell.jpg, albumhoes Welcome to Hell)
 wings-of-steel.png — zelf aangeleverd (wings of steel 2400x600.jpg)
