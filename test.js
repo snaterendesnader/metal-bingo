@@ -2,7 +2,7 @@
 const assert = require('node:assert/strict');
 const {
   slugify, parseBands, logoUrl, newCard, freshState, completedLines, isFull, FREE,
-  loadState, saveState, STORAGE_KEY,
+  loadState, saveState, STORAGE_KEY, cacheLogos,
 } = require('./app.js');
 
 // slugify
@@ -92,4 +92,30 @@ saveState(blocked, saved);
 assert.equal(loadState(null), null);
 saveState(null, saved);
 
-console.log('alle tests geslaagd');
+// cacheLogos: gevonden én ontbrekende logo's worden onthouden, dus niet elke keer opnieuw opgevraagd
+(async () => {
+  const stored = new Map();
+  const requested = [];
+  globalThis.fetch = async url => {
+    requested.push(url);
+    return new Response('png', { status: url === 'logos/band-0.png' ? 200 : 404 });
+  };
+  globalThis.caches = {
+    open: async () => ({
+      match: async url => stored.get(url),
+      put: async (url, res) => { stored.set(url, res); },
+      add: async url => { // zoals de echte Cache.add: faalt bij een 404
+        const res = await fetch(url);
+        if (!res.ok) throw new TypeError('bad status');
+        stored.set(url, res);
+      },
+    }),
+  };
+  await cacheLogos(bands(3));
+  await cacheLogos(bands(3));
+  assert.deepEqual(requested, ['logos/band-0.png', 'logos/band-1.png', 'logos/band-2.png']);
+  assert.equal(stored.get('logos/band-0.png').status, 200);
+  assert.equal(stored.get('logos/band-1.png').status, 404);
+
+  console.log('alle tests geslaagd');
+})();

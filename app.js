@@ -97,14 +97,18 @@ function saveState(storage, state) {
 }
 
 // Browser en service worker: haal alle logo's uit de bandlijst binnen, zodat je
-// ook offline een nieuwe kaart kunt trekken. Ontbrekende logo's (404) worden overgeslagen.
-// ponytail: al gecachete logo's worden niet opnieuw opgehaald; een vervangen logo komt
-// binnen zodra het op een kaart staat (network-first in sw.js).
+// ook offline een nieuwe kaart kunt trekken. Een ontbrekend logo (404) wordt ook
+// onthouden, anders vraagt elke keer openen ze allemaal opnieuw op.
+// ponytail: al gecachete logo's (en 404's) worden niet opnieuw opgehaald; een nieuw of
+// vervangen logo komt binnen zodra het online op een kaart staat (network-first in sw.js).
 async function cacheLogos(bands) {
   const cache = await caches.open(CACHE);
   await Promise.all(bands.map(async band => {
     const url = logoUrl(band);
-    if (!(await cache.match(url))) await cache.add(url).catch(() => {});
+    if (await cache.match(url)) return;
+    await fetch(url)
+      .then(res => cache.put(url, res.ok ? res : new Response('', { status: 404 })))
+      .catch(() => {});
   }));
 }
 
@@ -202,7 +206,7 @@ if (typeof module !== 'undefined') {
   module.exports = {
     SIZE, FREE, CACHE, STORAGE_KEY, LINES,
     slugify, parseBands, logoUrl, newCard, freshState, completedLines, isFull,
-    loadState, saveState,
+    loadState, saveState, cacheLogos,
   };
 }
 
