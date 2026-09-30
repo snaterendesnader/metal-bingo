@@ -99,16 +99,22 @@ function saveState(storage, state) {
 
 // Browser en service worker: haal alle logo's uit de bandlijst binnen, zodat je
 // ook offline een nieuwe kaart kunt trekken. Een ontbrekend logo (404) wordt ook
-// onthouden, anders vraagt elke keer openen ze allemaal opnieuw op.
-// ponytail: al gecachete logo's (en 404's) worden niet opnieuw opgehaald; een nieuw of
-// vervangen logo komt binnen zodra het online op een kaart staat (network-first in sw.js).
-async function cacheLogos(bands) {
+// onthouden, anders vraagt elke keer openen ze allemaal opnieuw op; na een uur wordt
+// het opnieuw geprobeerd, zodat later toegevoegde logo's toch binnenkomen.
+// ponytail: al gecachete logo's worden niet opnieuw opgehaald; een vervangen logo komt
+// binnen zodra het online op een kaart staat (network-first in sw.js).
+const RETRY_MISSING_MS = 60 * 60 * 1000;
+
+async function cacheLogos(bands, now = Date.now()) {
   const cache = await caches.open(CACHE);
   await Promise.all(bands.map(async band => {
     const url = logoUrl(band);
-    if (await cache.match(url)) return;
+    const cached = await cache.match(url);
+    if (cached && (cached.ok || now - Number(cached.headers.get('x-checked')) < RETRY_MISSING_MS)) return;
     await fetch(url)
-      .then(res => cache.put(url, res.ok ? res : new Response('', { status: 404 })))
+      .then(res => cache.put(url, res.ok
+        ? res
+        : new Response('', { status: 404, headers: { 'x-checked': String(now) } })))
       .catch(() => {});
   }));
 }

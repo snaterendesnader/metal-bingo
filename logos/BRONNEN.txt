@@ -1,8 +1,10 @@
 Bronnen van de logo's
 
-Alle logo's komen van Wikimedia Commons. Ze zijn omgezet naar zwart op een
-transparante achtergrond, bijgesneden en verkleind. Een logo dat onder CC BY-SA
-valt, blijft onder dezelfde licentie. Merkrechten blijven bij de bands.
+Alle logo's zijn omgezet naar zwart op een transparante achtergrond, bijgesneden
+en verkleind. Merkrechten blijven bij de bands.
+
+== Wikimedia Commons ==
+Een logo dat onder CC BY-SA valt, blijft onder dezelfde licentie.
 
 acdc.png — Acdclogobynon3.png — Public domain
   https://commons.wikimedia.org/wiki/File:Acdclogobynon3.png
@@ -138,3 +140,76 @@ volbeat.png — Volbeat (logo).jpeg — Public domain
   https://commons.wikimedia.org/wiki/File:Volbeat_(logo).jpeg
 within-temptation.png — Withintemptation-logo.svg — Public domain
   https://commons.wikimedia.org/wiki/File:Withintemptation-logo.svg
+
+== Wikipedia (niet via Commons; meestal "fair use", rechten voor hergebruik onduidelijk) ==
+
+aborted.png — ru.wikipedia: Aborted logo.jpg — Добросовестное использование
+  https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Aborted_logo.jpg
+arch-enemy.png — ru.wikipedia: Archenemy logo.jpg — Добросовестное использование
+  https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Archenemy_logo.jpg
+battle-beast.png — fi.wikipedia: Bttle Beast-logo.jpg — fair use
+  https://fi.wikipedia.org/wiki/Tiedosto:Bttle_Beast-logo.jpg
+belphegor.png — ru.wikipedia: Belphegor Logo.jpg — Добросовестное использование
+  https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Belphegor_Logo.jpg
+bolt-thrower.png — ru.wikipedia: Bolt Thrower logo.jpg — Добросовестное использование
+  https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Bolt_Thrower_logo.jpg
+dark-funeral.png — fr.wikipedia: Dark Funeral-logo.png — marque déposée
+  https://fr.wikipedia.org/wiki/Fichier:Dark_Funeral-logo.png
+darkthrone.png — en.wikipedia: Darkthrone Logo.png — Fair use
+  https://en.wikipedia.org/wiki/File:Darkthrone_Logo.png
+deicide.png — fi.wikipedia: Blacklogo.jpg — fair use
+  https://fi.wikipedia.org/wiki/Tiedosto:Blacklogo.jpg
+dimmu-borgir.png — fr.wikipedia: Dimmu Borgir Logo.jpg — marque déposée
+  https://fr.wikipedia.org/wiki/Fichier:Dimmu_Borgir_Logo.jpg
+emperor.png — pt.wikipedia: Emperor logo.png — Conteúdo restrito
+  https://pt.wikipedia.org/wiki/Ficheiro:Emperor_logo.png
+five-finger-death-punch.png — fr.wikipedia: 5fdplogo.jpg — marque déposée
+  https://fr.wikipedia.org/wiki/Fichier:5fdplogo.jpg
+grave.png — de.wikipedia: Grave logo.svg — Logo
+  https://de.wikipedia.org/wiki/Datei:Grave_logo.svg
+halestorm.png — fr.wikipedia: Halestorm-logo.jpg — marque déposée
+  https://fr.wikipedia.org/wiki/Fichier:Halestorm-logo.jpg
+heaven-shall-burn.png — fr.wikipedia: Heaven Shall Burn-logo.png — marque déposée
+  https://fr.wikipedia.org/wiki/Fichier:Heaven_Shall_Burn-logo.png
+helloween.png — fr.wikipedia: Helloween logo.gif — marque déposée
+  https://fr.wikipedia.org/wiki/Fichier:Helloween_logo.gif
+machine-head.png — fr.wikipedia: Machine Head-logo.jpg — marque déposée
+  https://fr.wikipedia.org/wiki/Fichier:Machine_Head-logo.jpg
+mayhem.png — ru.wikipedia: Mayhem logo.jpg — Добросовестное использование
+  https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Mayhem_logo.jpg
+mercyful-fate.png — fr.wikipedia: Mercyful Fate logo.png — marque déposée
+  https://fr.wikipedia.org/wiki/Fichier:Mercyful_Fate_logo.png
+mur.png — en.wikipedia: Múr band logo.png — Fair use
+  https://en.wikipedia.org/wiki/File:M%C3%BAr_band_logo.png
+obituary.png — ru.wikipedia: Obituary Logo.png — Добросовестное использование
+  https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Obituary_Logo.png
+opeth.png — ru.wikipedia: Opeth-logo.svg — Добросовестное использование
+  https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Opeth-logo.svg
+pestilence.png — ru.wikipedia: Pestilence Logo.jpg — Добросовестное использование
+  https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Pestilence_Logo.jpg
+queen.png — ru.wikipedia: Queen logo.svg — Public domain
+  https://commons.wikimedia.org/wiki/File:Queen_logo.svg
+satyricon.png — ru.wikipedia: Satyricon logo.jpg — Добросовестное использование
+  https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Satyricon_logo.jpg
+savatage.png — fi.wikipedia: Savatagen logo.svg — fair use
+  https://fi.wikipedia.org/wiki/Tiedosto:Savatagen_logo.svg
+saxon.png — fr.wikipedia: Logo de Saxon (groupe).jpeg — marque déposée
+  https://fr.wikipedia.org/wiki/Fichier:Logo_de_Saxon_(groupe).jpeg
+sleep-token.png — en.wikipedia: Sleep Token (English rock band) logo.svg — PD
+  https://en.wikipedia.org/wiki/File:Sleep_Token_(English_rock_band)_logo.svg
+system-of-a-down.png — ru.wikipedia: Soad logo.png — Public domain
+  https://commons.wikimedia.org/wiki/File:Soad_logo.png
+venom.png — ru.wikipedia: Venom logo.jpg — Добросовестное использование
+  https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Venom_logo.jpg
+watain.png — ru.wikipedia: Watain logo.jpg — Добросовестное использование
+  https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Watain_logo.jpg
+
+== iconape.com ("copyright of their respective owners"; rechten onduidelijk) ==
+
+alice-cooper.png — https://iconape.com/alice-cooper-logo-logo-icon-svg-png.html
+celtic-frost.png — https://iconape.com/celtic-frost-logo-logo-icon-svg-png.html
+evanescence.png — https://iconape.com/evanescence-logo-logo-icon-svg-png.html
+morbid-angel.png — https://iconape.com/morbid-angel-logo-logo-icon-svg-png.html
+motley-crue.png — https://iconape.com/motley-crue-2008-logo-logo-icon-svg-png.html
+napalm-death.png — https://iconape.com/napalm-death-logo-logo-icon-svg-png.html
+rotting-christ.png — https://iconape.com/rotting-christ-logo-logo-icon-svg-png.html

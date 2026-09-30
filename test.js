@@ -94,13 +94,15 @@ saveState(blocked, saved);
 assert.equal(loadState(null), null);
 saveState(null, saved);
 
-// cacheLogos: gevonden én ontbrekende logo's worden onthouden, dus niet elke keer opnieuw opgevraagd
+// cacheLogos: gevonden én ontbrekende logo's worden onthouden, dus niet elke keer opnieuw opgevraagd;
+// een ontbrekend logo wordt na een uur opnieuw geprobeerd, zodat later toegevoegde logo's binnenkomen
 (async () => {
   const stored = new Map();
   const requested = [];
+  const present = new Set(['logos/band-0.png']);
   globalThis.fetch = async url => {
     requested.push(url);
-    return new Response('png', { status: url === 'logos/band-0.png' ? 200 : 404 });
+    return new Response('png', { status: present.has(url) ? 200 : 404 });
   };
   globalThis.caches = {
     open: async () => ({
@@ -113,11 +115,24 @@ saveState(null, saved);
       },
     }),
   };
-  await cacheLogos(bands(3));
-  await cacheLogos(bands(3));
+  const t0 = Date.UTC(2026, 9, 1, 12);
+  await cacheLogos(bands(3), t0);
+  await cacheLogos(bands(3), t0 + 60 * 1000); // een minuut later
   assert.deepEqual(requested, ['logos/band-0.png', 'logos/band-1.png', 'logos/band-2.png']);
   assert.equal(stored.get('logos/band-0.png').status, 200);
   assert.equal(stored.get('logos/band-1.png').status, 404);
+
+  present.add('logos/band-1.png'); // logo later toegevoegd
+  requested.length = 0;
+  await cacheLogos(bands(3), t0 + 61 * 60 * 1000); // ruim een uur later
+  assert.deepEqual(requested, ['logos/band-1.png', 'logos/band-2.png']);
+  assert.equal(stored.get('logos/band-1.png').status, 200);
+
+  // een "ontbreekt" uit een eerdere versie (zonder tijdstip) wordt meteen opnieuw geprobeerd
+  stored.set('logos/band-2.png', new Response('', { status: 404 }));
+  requested.length = 0;
+  await cacheLogos(bands(3), t0 + 62 * 60 * 1000);
+  assert.deepEqual(requested, ['logos/band-2.png']);
 
   console.log('alle tests geslaagd');
 })();
