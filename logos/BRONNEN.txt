@@ -120,8 +120,6 @@ slipknot.png — Slipknot logo.svg — Public domain
   https://commons.wikimedia.org/wiki/File:Slipknot_logo.svg
 sodom.png — Sodom-logo.svg — Public domain
   https://commons.wikimedia.org/wiki/File:Sodom-logo.svg
-soulfly.png — Soulfly3-logo.svg — Public domain
-  https://commons.wikimedia.org/wiki/File:Soulfly3-logo.svg
 testament.png — Testament logo.svg — Public domain
   https://commons.wikimedia.org/wiki/File:Testament_logo.svg
 thin-lizzy.png — Thin Lizzy Logo Landscape.svg — Public domain
@@ -235,4 +233,5 @@ w-a-s-p.png — https://www.theaudiodb.com/artist/114079
 
 == Zelf aangeleverd ==
 
+soulfly.png — zelf aangeleverd (soulfy.webp, bovenste helft; oorspronkelijk van dreamstime.com)
 wings-of-steel.png — zelf aangeleverd (wings of steel 2400x600.jpg)
