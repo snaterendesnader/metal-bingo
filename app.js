@@ -96,6 +96,18 @@ function saveState(storage, state) {
   }
 }
 
+// Browser en service worker: haal alle logo's uit de bandlijst binnen, zodat je
+// ook offline een nieuwe kaart kunt trekken. Ontbrekende logo's (404) worden overgeslagen.
+// ponytail: al gecachete logo's worden niet opnieuw opgehaald; een vervangen logo komt
+// binnen zodra het op een kaart staat (network-first in sw.js).
+async function cacheLogos(bands) {
+  const cache = await caches.open(CACHE);
+  await Promise.all(bands.map(async band => {
+    const url = logoUrl(band);
+    if (!(await cache.match(url))) await cache.add(url).catch(() => {});
+  }));
+}
+
 function start() {
   const board = document.getElementById('board');
   const banner = document.getElementById('banner');
@@ -178,10 +190,12 @@ function start() {
     .then(text => {
       bands = parseBands(text);
       if (!state) newGame();
+      if (typeof caches !== 'undefined') cacheLogos(bands).catch(() => {});
     })
     .catch(() => {
       if (!state) message.textContent = 'Kon bands.txt niet laden. Open de site een keer met internet.';
     });
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 }
 
 if (typeof module !== 'undefined') {
