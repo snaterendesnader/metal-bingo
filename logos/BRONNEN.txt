@@ -224,13 +224,13 @@ mastodon.png — https://www.theaudiodb.com/artist/112462
 metal-church.png — https://www.theaudiodb.com/artist/113311
 ozzy-osbourne.png — https://www.theaudiodb.com/artist/113156
 parkway-drive.png — https://www.theaudiodb.com/artist/113384
-queensryche.png — https://www.theaudiodb.com/artist/111980
 w-a-s-p.png — https://www.theaudiodb.com/artist/114079
 
 == Zelf aangeleverd ==
 
 lorna-shore.png — zelf aangeleverd (lornaShore.png)
 motley-crue.png — zelf aangeleverd (313-3136619_motley-crue-band-logo.png)
+queensryche.png — zelf aangeleverd (queensryche_band_logo.jpg)
 soulfly.png — zelf aangeleverd (soulfy.webp, bovenste helft; oorspronkelijk van dreamstime.com)
 venom.png — zelf aangeleverd (Venom_Welcome_to_Hell.jpg, albumhoes Welcome to Hell)
 wings-of-steel.png — zelf aangeleverd (wings of steel 2400x600.jpg)
