@@ -1,7 +1,7 @@
 // Self-check van de spellogica: node test.js
 const assert = require('node:assert/strict');
 const {
-  slugify, parseBands, logoUrl, newCard, freshState, completedLines, isFull, FREE,
+  slugify, parseBands, logoUrl, newCard, freshState, completedLines, isFull, newLines, FREE,
   loadState, saveState, STORAGE_KEY, cacheLogos,
 } = require('./app.js');
 
@@ -58,6 +58,15 @@ const all = Array(25).fill(true);
 assert.equal(completedLines(all).length, 12);
 assert.ok(isFull(all));
 assert.ok(!isFull(marks(0, 1, 2, 3, 4)));
+
+// newLines: alleen de lijnen die door deze tik vol zijn geworden
+assert.deepEqual(newLines(marks(0, 1, 2, 3), marks(0, 1, 2, 3, 4)), [[0, 1, 2, 3, 4]]);
+assert.deepEqual(newLines(marks(0, 1, 2, 3, 4), marks(0, 1, 2, 3, 4, 9)), []); // lijn was al vol
+assert.deepEqual(newLines(marks(0, 1, 2, 3, 4), marks(0, 1, 2, 3)), []); // uitvinken
+assert.deepEqual( // één tik maakt rij 0 én kolom 0 vol
+  newLines(marks(1, 2, 3, 4, 5, 10, 15, 20), marks(0, 1, 2, 3, 4, 5, 10, 15, 20)),
+  [[0, 1, 2, 3, 4], [0, 5, 10, 15, 20]],
+);
 
 // loadState / saveState
 const memory = () => {

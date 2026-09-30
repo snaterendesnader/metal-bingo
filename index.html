@@ -45,6 +45,48 @@
   .cell.marked img { filter: invert(1); }
   .cell.line { background: var(--line); color: var(--ink); }
   .cell.line img { filter: none; }
+  /* Effecten */
+  @keyframes pop { 50% { transform: scale(1.18); } }
+  .cell.pop { animation: pop .25s ease-out; }
+  @keyframes glow {
+    40% { transform: scale(1.15); box-shadow: 0 0 24px 8px #ff6600; }
+  }
+  .cell.glow { position: relative; z-index: 1; animation: glow .5s ease-out both; }
+  @keyframes slam {
+    0% { transform: scale(4) rotate(-12deg); opacity: 0; }
+    60% { transform: scale(.9) rotate(3deg); opacity: 1; }
+    100% { transform: none; }
+  }
+  #banner.slam { animation: slam .5s cubic-bezier(.2, 1.4, .4, 1) both; }
+  @keyframes shake {
+    20%, 60% { transform: translate(-6px, 2px); }
+    40%, 80% { transform: translate(6px, -2px); }
+  }
+  #board.shake { animation: shake .4s; }
+  .fx { position: fixed; z-index: 10; pointer-events: none; }
+  @keyframes float-up {
+    from { transform: translate(-50%, -50%); opacity: 1; }
+    to { transform: translate(-50%, calc(-50% - 110px)) scale(1.8); opacity: 0; }
+  }
+  .fx.float { font-size: 2rem; animation: float-up .9s ease-out forwards; }
+  @keyframes flash { 0%, 40%, 100% { opacity: 0; } 10%, 55% { opacity: .85; } }
+  .fx.flash { inset: 0; background: #fff; animation: flash .45s linear forwards; }
+  @keyframes fall { to { transform: translateY(calc(100vh + 4rem)) rotate(var(--spin)); } }
+  .fx.rain { top: -3rem; font-size: 1.8rem; animation: fall var(--dur) linear var(--delay) both; }
+  @keyframes burn {
+    0%, 100% { opacity: 0; transform: translateY(100%); }
+    15%, 80% { opacity: 1; transform: none; }
+  }
+  .fx.flames {
+    left: 0; right: 0; bottom: 0; display: flex; justify-content: space-around;
+    font-size: 2.4rem; animation: burn 4s ease-in-out forwards;
+  }
+  @keyframes flicker { to { transform: scaleY(1.35) translateY(-6px); } }
+  .fx.flames span { display: inline-block; transform-origin: bottom; animation: flicker .3s ease-in-out infinite alternate; }
+  @media (prefers-reduced-motion: reduce) {
+    .cell.pop, .cell.glow, #banner.slam, #board.shake { animation: none; }
+    .fx { display: none; }
+  }
   #new {
     margin-top: auto; padding: 12px 24px;
     border: 2px solid var(--fg); border-radius: 8px;

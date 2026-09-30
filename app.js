@@ -72,6 +72,12 @@ function isFull(marked) {
   return marked.every(Boolean);
 }
 
+// De lijnen die vol zijn in `after` maar nog niet in `before`: wat deze tik opleverde.
+function newLines(before, after) {
+  const had = completedLines(before).map(String);
+  return completedLines(after).filter(line => !had.includes(String(line)));
+}
+
 // storage is localStorage, of null als de browser dat blokkeert.
 function loadState(storage) {
   try {
@@ -157,9 +163,11 @@ function start() {
       name.textContent = band.name;
       cell.append(img, name);
       cell.onclick = () => {
+        const before = state.marked.slice();
         state.marked[i] = !state.marked[i];
         saveState(storage, state);
         update();
+        if (state.marked[i]) celebrate(cell, before);
       };
       return cell;
     }));
@@ -173,7 +181,75 @@ function start() {
       cell.classList.toggle('line', inLine.has(i));
       if (i !== FREE) cell.setAttribute('aria-pressed', String(state.marked[i]));
     });
-    banner.textContent = isFull(state.marked) ? 'VOLLE KAART!' : inLine.size ? 'BINGO!' : '';
+    banner.textContent = isFull(state.marked) ? 'VOLLE KAART! 💀🤘' : inLine.size ? 'BINGO! 🤘🔥' : '';
+  }
+
+  // Effecten bij afvinken, een nieuwe lijn en een volle kaart. Met "beweging beperken"
+  // aan maken we geen losse effect-elementen: zonder animatie zouden ze nooit opruimen.
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const EMOJI = ['🤘', '🔥', '⚡', '💀', '🍺', '🎸'];
+  const pick = list => list[Math.floor(Math.random() * list.length)];
+
+  // Tijdelijk effect-element dat zichzelf weghaalt als zijn animatie klaar is.
+  function fx(className, text, style = {}) {
+    if (calm) return null;
+    const el = document.createElement('div');
+    el.className = `fx ${className}`;
+    el.textContent = text;
+    for (const [prop, value] of Object.entries(style)) el.style.setProperty(prop, value);
+    el.addEventListener('animationend', e => { if (e.target === el) el.remove(); });
+    document.body.append(el);
+    return el;
+  }
+
+  // Animatie (opnieuw) starten, ook als de klasse er nog op stond.
+  function replay(el, className) {
+    el.classList.remove(className);
+    void el.offsetWidth;
+    el.classList.add(className);
+  }
+
+  const done = e => {
+    e.target.classList.remove('pop', 'glow', 'slam', 'shake');
+    e.target.style.animationDelay = '';
+  };
+  board.addEventListener('animationend', done);
+  banner.addEventListener('animationend', done);
+
+  function celebrate(cell, before) {
+    replay(cell, 'pop');
+    const r = cell.getBoundingClientRect();
+    fx('float', pick(EMOJI), { left: `${r.left + r.width / 2}px`, top: `${r.top + r.height / 2}px` });
+
+    const lines = newLines(before, state.marked);
+    if (!lines.length) return;
+    const full = isFull(state.marked);
+    for (const line of lines) {
+      line.forEach((c, n) => {
+        board.children[c].style.animationDelay = `${n * 80}ms`;
+        replay(board.children[c], 'glow');
+      });
+    }
+    replay(banner, 'slam');
+    replay(board, 'shake');
+    fx('flash', '');
+    navigator.vibrate?.(full ? [150, 80, 150, 80, 400] : [80, 40, 80]);
+    if (!full) return;
+
+    for (let n = 0; n < 40; n++) {
+      fx('rain', pick(EMOJI), {
+        left: `${Math.random() * 95}vw`,
+        '--dur': `${2 + Math.random() * 2}s`,
+        '--delay': `${Math.random() * 1.5}s`,
+        '--spin': `${Math.round(Math.random() * 720 - 360)}deg`,
+      });
+    }
+    fx('flames', '')?.append(...Array.from({ length: 8 }, (_, n) => {
+      const flame = document.createElement('span');
+      flame.textContent = '🔥';
+      flame.style.animationDelay = `${n * 70}ms`;
+      return flame;
+    }));
   }
 
   function newGame() {
@@ -216,7 +292,7 @@ function start() {
 if (typeof module !== 'undefined') {
   module.exports = {
     SIZE, FREE, CACHE, STORAGE_KEY, LINES,
-    slugify, parseBands, logoUrl, newCard, freshState, completedLines, isFull,
+    slugify, parseBands, logoUrl, newCard, freshState, completedLines, isFull, newLines,
     loadState, saveState, cacheLogos,
   };
 }
