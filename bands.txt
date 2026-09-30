@@ -29,8 +29,6 @@ Obituary
 Bolt Thrower
 Napalm Death
 Carcass
-At the Gates
-Asphyx
 Pestilence
 Hail of Bullets
 
@@ -71,4 +69,67 @@ Parkway Drive
 # Doom & stoner
 Type O Negative
 Electric Wizard
-Sleep
+Sleep Token
+
+#toegevoegd door Afelien:
+Soulfly
+Scorpions
+Rotting Christ
+Queen
+Queensrÿche
+Powerwolf
+Paradise Lost
+Thin Lizzy
+Twisted Sister
+Volbeat
+UFO
+W.A.S.P.
+Alice Cooper
+Ozzy Osbourne
+Airbourne
+Wings of Steel
+Manowar
+Electric Callboy
+Alestorm
+Halestorm
+Marilyn Manson
+Flotsam and Jetsam
+Bring me the Horizon
+Avantasia
+Battle Beast
+Beast in Black
+Kiss
+Korn
+Rush
+Saxon
+Savatage
+Bon Jovi
+Deep Purple
+Def Leppard
+Doro
+Abbath
+King Diamond
+Mgła
+Amorphis
+Lorna Shore
+Aborted
+Alcest
+Burzum
+Belphegor
+Dark Funeral
+Coroner
+Deicide
+Grave
+Linkin Park
+Satyricon
+Nirvana
+Five Finger Death Punch
+Guns N' Roses
+Helloween
+Evanescence
+Metal Church
+Mötley Crüe
+Eluveitie
+Múr
+Mercyful Fate
+Heaven Shall Burn

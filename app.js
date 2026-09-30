@@ -18,6 +18,7 @@ function slugify(name) {
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
+    .replace(/ł/g, 'l') // geen accent volgens Unicode, dus NFD haalt hem niet weg
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
 }

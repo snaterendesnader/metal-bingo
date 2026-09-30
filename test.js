@@ -11,6 +11,8 @@ assert.equal(slugify('Mötley Crüe'), 'motley-crue');
 assert.equal(slugify('AC/DC'), 'ac-dc');
 assert.equal(slugify('  Bolt  Thrower!! '), 'bolt-thrower');
 assert.equal(slugify('†††'), '');
+assert.equal(slugify('Mgła'), 'mgla');
+assert.equal(slugify('ŁÓDŹ'), 'lodz');
 
 // parseBands: commentaar, lege regels, CRLF, spaties, override, lege override, dubbel
 assert.deepEqual(

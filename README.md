@@ -23,7 +23,7 @@ hebt gebruikt.
 
 - Zet de naam in `bands.txt`, één band per regel. Regels met `#` zijn commentaar.
 - Zet het logo in `logos/` als `<naam>.png`: kleine letters, spaties en andere
-  tekens worden `-`, accenten vallen weg. `Mötley Crüe` → `logos/motley-crue.png`.
+  tekens worden `-`, accenten vallen weg (ł wordt l). `Mötley Crüe` → `logos/motley-crue.png`.
 - Andere bestandsnaam nodig? Schrijf `AC/DC | acdc` → `logos/acdc.png`.
 - Liefst een zwart logo op een transparante achtergrond, ongeveer vierkant, een
   paar honderd pixels breed en klein (zo'n 50 KB): alle logo's komen offline op
