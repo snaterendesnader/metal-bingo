@@ -96,6 +96,94 @@ function saveState(storage, state) {
   }
 }
 
+function start() {
+  const board = document.getElementById('board');
+  const banner = document.getElementById('banner');
+  const message = document.getElementById('message');
+  let storage = null;
+  try {
+    storage = window.localStorage; // gooit als de browser site-data blokkeert
+  } catch {}
+  let bands = null;
+  let state = loadState(storage);
+
+  function showCard() {
+    board.replaceChildren(...state.cells.map((band, i) => {
+      if (band === null) {
+        const free = document.createElement('div');
+        free.className = 'cell free';
+        free.textContent = '🤘';
+        free.setAttribute('aria-label', 'Gratis vakje');
+        return free;
+      }
+      const cell = document.createElement('button');
+      cell.type = 'button';
+      cell.className = 'cell';
+      const img = document.createElement('img');
+      img.src = logoUrl(band);
+      img.alt = '';
+      img.onerror = () => {
+        img.remove();
+        cell.classList.add('nologo');
+      };
+      const name = document.createElement('span');
+      name.textContent = band.name;
+      cell.append(img, name);
+      cell.onclick = () => {
+        state.marked[i] = !state.marked[i];
+        saveState(storage, state);
+        update();
+      };
+      return cell;
+    }));
+    update();
+  }
+
+  function update() {
+    const inLine = new Set(completedLines(state.marked).flat());
+    [...board.children].forEach((cell, i) => {
+      cell.classList.toggle('marked', state.marked[i]);
+      cell.classList.toggle('line', inLine.has(i));
+      if (i !== FREE) cell.setAttribute('aria-pressed', String(state.marked[i]));
+    });
+    banner.textContent = isFull(state.marked) ? 'VOLLE KAART!' : inLine.size ? 'BINGO!' : '';
+  }
+
+  function newGame() {
+    if (!bands) {
+      message.textContent = 'Bandlijst niet geladen. Open de site een keer met internet.';
+      return;
+    }
+    try {
+      state = freshState(bands);
+    } catch (err) {
+      message.textContent = err.message;
+      return;
+    }
+    message.textContent = '';
+    saveState(storage, state);
+    showCard();
+  }
+
+  document.getElementById('new').onclick = () => {
+    if (confirm('Nieuwe kaart? Je vinkjes gaan verloren.')) newGame();
+  };
+
+  if (state) showCard();
+  fetch('bands.txt')
+    .then(res => {
+      if (!res.ok) throw new Error(res.statusText);
+      return res.text();
+    })
+    .then(text => {
+      bands = parseBands(text);
+      if (!state) newGame();
+    })
+    .catch(() => {
+      if (!state) message.textContent = 'Kon bands.txt niet laden. Open de site een keer met internet.';
+    });
+}
+
 if (typeof module !== 'undefined') {
   module.exports = {
     SIZE, FREE, CACHE, STORAGE_KEY, LINES,
@@ -103,3 +191,5 @@ if (typeof module !== 'undefined') {
     loadState, saveState,
   };
 }
+
+if (typeof document !== 'undefined') start();

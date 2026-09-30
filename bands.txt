@@ -1,0 +1,74 @@
+# Metal Bingo — één band per regel. Logo: logos/<naam>.png (zie README.md).
+# Eigen bestandsnaam: "Naam | bestandsnaam". Regels met # worden overgeslagen.
+
+# Klassiekers
+Metallica
+Iron Maiden
+Black Sabbath
+Judas Priest
+Motörhead
+AC/DC | acdc
+Dio
+Megadeth
+Slayer
+Anthrax
+Pantera
+Testament
+Exodus
+Kreator
+Sodom
+Sepultura
+Machine Head
+Lamb of God
+
+# Death & grind
+Death
+Cannibal Corpse
+Morbid Angel
+Obituary
+Bolt Thrower
+Napalm Death
+Carcass
+At the Gates
+Asphyx
+Pestilence
+Hail of Bullets
+
+# Black
+Venom
+Bathory
+Celtic Frost
+Mayhem
+Darkthrone
+Emperor
+Immortal
+Behemoth
+Dimmu Borgir
+Cradle of Filth
+Watain
+
+# Melodisch, prog & modern
+Amon Amarth
+In Flames
+Arch Enemy
+Children of Bodom
+Opeth
+Mastodon
+Gojira
+Meshuggah
+Tool
+Slipknot
+System of a Down
+Rammstein
+Ghost
+Sabaton
+Nightwish
+Within Temptation
+Epica
+Trivium
+Parkway Drive
+
+# Doom & stoner
+Type O Negative
+Electric Wizard
+Sleep

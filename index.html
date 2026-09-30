@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<title>Metal Bingo</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #111; --fg: #eee; --tile: #f2f2f2; --ink: #111;
+    --mark: #c00; --line: #ffcc00; --error: #f66;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    height: 100dvh; padding: 8px 8px max(8px, env(safe-area-inset-bottom));
+    background: var(--bg); color: var(--fg); font-family: system-ui, sans-serif;
+  }
+  h1 { margin: 0; font-size: 1.4rem; letter-spacing: .1em; text-transform: uppercase; }
+  #banner { min-height: 1.2em; margin: 0; font-size: 1.8rem; font-weight: 900; color: var(--line); }
+  #message { margin: 0; color: var(--error); text-align: center; }
+  #message:empty { display: none; }
+  #board {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px;
+    width: min(100%, calc(100dvh - 10rem));
+  }
+  .cell {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+    aspect-ratio: 1; min-width: 0; overflow: hidden; padding: 3px;
+    border: 0; border-radius: 6px; background: var(--tile); color: var(--ink); font: inherit;
+    touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+  }
+  .cell img { flex: 1; min-height: 0; width: 100%; object-fit: contain; }
+  .cell span {
+    max-height: 2.2em; overflow: hidden;
+    font-size: .55rem; line-height: 1.1; text-align: center; overflow-wrap: anywhere;
+  }
+  .cell.nologo span { max-height: none; font-size: .68rem; font-weight: 700; hyphens: auto; }
+  .cell.free { font-size: 2rem; }
+  .cell.marked { background: var(--mark); color: #fff; }
+  .cell.marked img { filter: invert(1); }
+  .cell.line { background: var(--line); color: var(--ink); }
+  .cell.line img { filter: none; }
+  #new {
+    margin-top: auto; padding: 12px 24px;
+    border: 2px solid var(--fg); border-radius: 8px;
+    background: transparent; color: var(--fg); font: inherit; font-weight: 700;
+  }
+</style>
+</head>
+<body>
+<h1>Metal Bingo</h1>
+<p id="banner" role="status" aria-live="polite"></p>
+<p id="message" role="alert"></p>
+<div id="board"></div>
+<button id="new" type="button">Nieuwe kaart</button>
+<script src="app.js" defer></script>
+</body>
+</html>
