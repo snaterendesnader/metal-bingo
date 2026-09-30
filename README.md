@@ -32,6 +32,9 @@ hebt gebruikt.
 
 ## Lokaal draaien
 
+Dubbelklikken op `index.html` werkt niet: de browser mag `bands.txt` dan niet
+ophalen. Start een kleine webserver in de projectmap:
+
 ```bash
 python3 -m http.server 8000   # open http://localhost:8000
 node test.js                  # self-check van de spellogica

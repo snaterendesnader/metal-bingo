@@ -122,6 +122,10 @@ function start() {
   } catch {}
   let bands = null;
   let state = loadState(storage);
+  // Als bestand geopend (dubbelklik op index.html) mag de browser bands.txt niet ophalen.
+  const loadHint = location.protocol === 'file:'
+    ? 'Open de site via een webserver in plaats van als bestand (zie README: python3 -m http.server).'
+    : 'Open de site een keer met internet.';
 
   function showCard() {
     board.replaceChildren(...state.cells.map((band, i) => {
@@ -167,7 +171,7 @@ function start() {
 
   function newGame() {
     if (!bands) {
-      message.textContent = 'Bandlijst niet geladen. Open de site een keer met internet.';
+      message.textContent = `Bandlijst niet geladen. ${loadHint}`;
       return;
     }
     try {
@@ -197,7 +201,7 @@ function start() {
       if (typeof caches !== 'undefined') cacheLogos(bands).catch(() => {});
     })
     .catch(() => {
-      if (!state) message.textContent = 'Kon bands.txt niet laden. Open de site een keer met internet.';
+      if (!state) message.textContent = `Kon bands.txt niet laden. ${loadHint}`;
     });
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 }
