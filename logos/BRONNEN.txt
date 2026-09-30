@@ -197,8 +197,6 @@ sleep-token.png — en.wikipedia: Sleep Token (English rock band) logo.svg — P
   https://en.wikipedia.org/wiki/File:Sleep_Token_(English_rock_band)_logo.svg
 system-of-a-down.png — ru.wikipedia: Soad logo.png — Public domain
   https://commons.wikimedia.org/wiki/File:Soad_logo.png
-venom.png — ru.wikipedia: Venom logo.jpg — Добросовестное использование
-  https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Venom_logo.jpg
 watain.png — ru.wikipedia: Watain logo.jpg — Добросовестное использование
   https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Watain_logo.jpg
 
@@ -234,4 +232,5 @@ w-a-s-p.png — https://www.theaudiodb.com/artist/114079
 == Zelf aangeleverd ==
 
 soulfly.png — zelf aangeleverd (soulfy.webp, bovenste helft; oorspronkelijk van dreamstime.com)
+venom.png — zelf aangeleverd (Venom_Welcome_to_Hell.jpg, albumhoes Welcome to Hell)
 wings-of-steel.png — zelf aangeleverd (wings of steel 2400x600.jpg)
