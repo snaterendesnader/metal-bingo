@@ -2,6 +2,7 @@
 const assert = require('node:assert/strict');
 const {
   slugify, parseBands, logoUrl, newCard, freshState, completedLines, isFull, FREE,
+  loadState, saveState, STORAGE_KEY,
 } = require('./app.js');
 
 // slugify
@@ -55,5 +56,40 @@ const all = Array(25).fill(true);
 assert.equal(completedLines(all).length, 12);
 assert.ok(isFull(all));
 assert.ok(!isFull(marks(0, 1, 2, 3, 4)));
+
+// loadState / saveState
+const memory = () => {
+  const data = {};
+  return { getItem: k => (k in data ? data[k] : null), setItem: (k, v) => { data[k] = String(v); } };
+};
+const store = memory();
+assert.equal(loadState(store), null); // nog niets bewaard
+const saved = freshState(bands(30));
+saved.marked[3] = true;
+saveState(store, saved);
+assert.deepEqual(loadState(store), saved);
+
+// kapotte of verouderde opslag → null
+const card = newCard(bands(30));
+for (const bad of [
+  'geen json',
+  'null',
+  '{}',
+  '{"cells":[],"marked":[]}',
+  JSON.stringify({ cells: Array(25).fill(1), marked: Array(25).fill(false) }),
+  JSON.stringify({ cells: card, marked: Array(25).fill('ja') }),
+  JSON.stringify({ cells: card.map(c => c || { name: 'x', slug: 'x' }), marked: Array(25).fill(false) }),
+]) {
+  const s = memory();
+  s.setItem(STORAGE_KEY, bad);
+  assert.equal(loadState(s), null, bad);
+}
+
+// geblokkeerde of ontbrekende opslag gooit nooit
+const blocked = { getItem() { throw new Error('blocked'); }, setItem() { throw new Error('blocked'); } };
+assert.equal(loadState(blocked), null);
+saveState(blocked, saved);
+assert.equal(loadState(null), null);
+saveState(null, saved);
 
 console.log('alle tests geslaagd');

@@ -71,9 +71,35 @@ function isFull(marked) {
   return marked.every(Boolean);
 }
 
+// storage is localStorage, of null als de browser dat blokkeert.
+function loadState(storage) {
+  try {
+    const s = JSON.parse(storage.getItem(STORAGE_KEY));
+    const valid = s
+      && Array.isArray(s.cells) && s.cells.length === SIZE * SIZE
+      && Array.isArray(s.marked) && s.marked.length === SIZE * SIZE
+      && s.marked.every(m => typeof m === 'boolean')
+      && s.cells.every((c, i) => (i === FREE
+        ? c === null
+        : c !== null && typeof c.name === 'string' && typeof c.slug === 'string'));
+    return valid ? s : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveState(storage, state) {
+  try {
+    storage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch {
+    // opslag geblokkeerd of vol: spelen kan nog, alleen zonder bewaren
+  }
+}
+
 if (typeof module !== 'undefined') {
   module.exports = {
     SIZE, FREE, CACHE, STORAGE_KEY, LINES,
     slugify, parseBands, logoUrl, newCard, freshState, completedLines, isFull,
+    loadState, saveState,
   };
 }
