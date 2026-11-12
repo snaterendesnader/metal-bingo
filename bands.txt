@@ -44,6 +44,8 @@ Dimmu Borgir
 Cradle of Filth
 Watain
 Summoning
+Agalloch
+Kanonenfieber
 
 # Melodisch, prog & modern
 Amon Amarth
@@ -65,6 +67,15 @@ Within Temptation
 Epica
 Trivium
 Parkway Drive
+Lacuna Coil
+Jinjer
+Gamma Ray
+HammerFall
+Primal Fear
+DragonForce
+Dream Theater
+Marillion
+Fleddy Melculy
 
 # Doom & stoner
 Type O Negative
