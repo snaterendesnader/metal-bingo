@@ -30,7 +30,6 @@ Bolt Thrower
 Napalm Death
 Carcass
 Pestilence
-Hail of Bullets
 
 # Black
 Venom
@@ -44,6 +43,7 @@ Behemoth
 Dimmu Borgir
 Cradle of Filth
 Watain
+Summoning
 
 # Melodisch, prog & modern
 Amon Amarth
@@ -100,7 +100,6 @@ Battle Beast
 Beast in Black
 Kiss
 Korn
-Rush
 Saxon
 Savatage
 Bon Jovi
